@@ -1,4 +1,4 @@
-Project Name : Online Notice Board System
+**Online Notice Board System**
 
 Online Notice Board System that can manage and display notices for school / colleges. 
 
