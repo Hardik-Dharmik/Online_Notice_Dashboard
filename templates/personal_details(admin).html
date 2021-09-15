@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar Starts here -->
+
+    <div class="bg-white" id="sidebar-wrapper">
+
+      <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+        <a class="navbar-brand" id="logo" href="index.html">
+          <img src="primathink.png" height="100" width="180">
+        </a>
+      </div>
+
+
+      <div class="list-group list-group-flush my-3">
+        <a class="list-group-item list-group-item-action  " href="notice(admin).html">
+          <i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+        </a>
+        <a class="list-group-item list-group-item-action " href="registration.htm">
+          <i class="fas fa-project-diagram me-2"></i>Add Student(register)
+        </a>
+        <a class="list-group-item list-group-item-action " href="dashboard(admin).html">
+          <i class="fas fa-chart-line me-2"></i>Progress
+        </a>
+        <a class="list-group-item list-group-item-action " href="student(admin).html">
+          <i class="fas fa-paperclip me-2"></i>Student
+        </a>
+        <a class="list-group-item list-group-item-action " href="#">
+          <i class="fas fa-shopping-cart me-2"></i>Progress
+        </a>
+        <a class="list-group-item list-group-item-action" href="#">
+          <i class="fas fa-comment-dots me-2"></i>Progress
+        </a>
+        <a class="list-group-item list-group-item-action " href="#">
+          <i class="fas fa-map-marker-alt me-2"></i>Progress
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- Sidebar ends here -->
+
+
+
+
+    <!--Navbar Starts Here  -->
+    <div class="page-content-wrapper">
+      <nav class="navbar navbar-expand-xl bg-transparent d-flex">
+        <div class="d-flex " id="navelements" style="flex-grow:1;">
+          <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+          <h2 class="fs-2 m-0 navbar-brand ">Dashboard</h2>
+        </div>
+        <div class="dropdown show" ">
+                    <a class=" btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="personal_details(admin).html">Profile</a>
+            <a class="dropdown-item" href="login.htm">Log out</a>
+          </div>
+        </div>
+
+      </nav>
+
+
+      <div class="student-profile py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card shadow-sm">
+                <div class="card-header bg-transparent text-center">
+                  <img class="profile_img" src="https://picsum.photos/200/300" alt="student dp">
+                  <h3>Tanishq Sharma</h3>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0"><strong class="pr-1">Student ID:</strong>6969696</p>
+                  <p class="mb-0"><strong class="pr-1">Class:</strong>12</p>
+                  <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                  <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Personal Information</h3>
+                </div>
+                <div class="card-body pt-0">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th width="30%">Roll</th>
+                      <td width="2%">:</td>
+                      <td>69</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Academic Year </th>
+                      <td width="2%">:</td>
+                      <td>2021-2022</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Gender</th>
+                      <td width="2%">:</td>
+                      <td>Male</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Address</th>
+                      <td width="2%">:</td>
+                      <td>Asdfgh qwerty uiop kljh bnmv cxzasd hdsudhdijosj 44009</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Email Id</th>
+                      <td width="2%">:</td>
+                      <td>abdsfgr@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Phone no.</th>
+                      <td width="2%">:</td>
+                      <td>6969696969</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Blood Group</th>
+                      <td width="2%">:</td>
+                      <td>B+</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Mothers Name</th>
+                      <td width="2%">:</td>
+                      <td>Asdfgh qwerty</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Fathers Name</th>
+                      <td width="2%">:</td>
+                      <td>abdsfgr hbdsvbhjfd</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Fathers Contact no.</th>
+                      <td width="2%">:</td>
+                      <td>1234567897</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Mothers Contact no.</th>
+                      <td width="2%">:</td>
+                      <td>9876543211</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div style="height: 26px"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <!-- Navbar Ends Here -->
+
+
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="js/chart-area.js"></script>
+  <script src="js/chart-pie.js"></script>
+  <script src="js/chart-bar.js"></script>
+
+  <script>
+    var sidebar = document.getElementById("wrapper")
+    var toggle = document.getElementById("menu-toggle")
+
+    toggle.onclick = function () {
+      sidebar.classList.toggle("toggled")
+    }
+  </script>
+</body>
+
+</html>

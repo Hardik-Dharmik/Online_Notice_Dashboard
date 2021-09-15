@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar Starts here -->
+
+        <div class="bg-white" id="sidebar-wrapper">
+
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <a class="navbar-brand" id="logo" href="index.html">
+                    <img src="primathink.png" height="100" width="180">
+                </a>
+            </div>
+
+
+            <div class="list-group list-group-flush my-3">
+                <a class="list-group-item list-group-item-action  " href="notice(admin).html">
+                    <i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+                </a>
+                <a class="list-group-item list-group-item-action " href="registration.htm">
+                    <i class="fas fa-project-diagram me-2"></i>Add Student(register)
+                </a>
+                <a class="list-group-item list-group-item-action " href="dashboard(admin).html">
+                    <i class="fas fa-chart-line me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action " href="student(admin).html">
+                    <i class="fas fa-paperclip me-2"></i>Student
+                </a>
+                <a class="list-group-item list-group-item-action " href="#">
+                    <i class="fas fa-shopping-cart me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">
+                    <i class="fas fa-comment-dots me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action " href="#">
+                    <i class="fas fa-map-marker-alt me-2"></i>Progress
+                </a>
+
+            </div>
+        </div>
+
+
+
+        <!-- Sidebar ends here -->
+
+
+
+
+        <!--Navbar Starts Here  -->
+        <div class="page-content-wrapper">
+            <nav class="navbar navbar-expand-xl bg-transparent d-flex" >
+                <div class="d-flex " id="navelements" style="flex-grow:1;">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 navbar-brand ">Dashboard</h2>
+                </div>
+                <div class="dropdown show" ">
+                    <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                    </a>
+                
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="personal_details(admin).html">Profile</a>
+                        <a class="dropdown-item" href="login.htm">Log out</a>
+                    </div>
+                </div>
+                
+            </nav>
+
+
+            <div class="container-fluid px-4 d-flex flex-row  justify-content-start" style="flex-wrap:wrap" >
+                <div style="flex-basis: 100%;">
+                    <h1 class="h1 mb-0 text-gray-700"><b>&nbsp;Notice Board</b></h1>
+                </div>
+
+
+                
+                
+                <div class="float-right" style="padding-right: 0px">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 "
+                        style="max-width: 700px;background:#b9e4e1 ;max-height: 420px;border-radius: 5px; ">
+                        <div>
+                            <h3 style="text-align: center"><b>Notices</b></h3>
+                            <button type="button" class="btn btn-primary">ADD NOTICE</button>
+
+                            <button type="button" class="btn btn-danger">DELETE NOTICE</button>
+                			<h5>   </h5>
+                           
+                        </div>
+                        <div class="card" style="width: 700px">
+                            <div class="card-body ">
+                            <h5 class="card-title ">Notice 1</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar" ></i>
+                                </a>
+                                <i class="fas fa-times-circle" ></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 1. Notice is the legal concept describing a requirement that a party be
+                                    aware of legal process affecting their rights, obligations or duties. There are several types of
+                                    notice: public notice, actual notice, constructive notice, and implied notice </p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 2</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 2.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 3</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 3.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 4 </h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 4.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 700px">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 5</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 5. Notice is the legal concept describing a requirement that a party be
+                                    aware of legal process affecting their rights, obligations or duties. There are several types of
+                                    notice: public notice, actual notice, constructive notice, and implied notice </p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 6</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 6.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 7</h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 7.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                
+                        <div class="card" style="width: 700px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Notice 8 </h5>
+                                <a href="viewstudent.html" style="margin-left: 500px;">
+                                    <i class="fas fa-calendar"></i>
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                                <p class="card-text">Notice 8.Notice is the legal concept describing a requirement that a party be aware
+                                    of legal process affecting their rights, obligations or duties. There are several types of notice:
+                                    public notice, actual notice, constructive notice, and implied notice</p>
+                            </div>
+                        </div>
+                
+                
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Navbar Ends Here -->
+
+
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    
+<script >
+    var sidebar = document.getElementById("wrapper")
+    var toggle = document.getElementById("menu-toggle")
+
+    toggle.onclick = function(){
+        sidebar.classList.toggle("toggled")
+    }
+</script>
+</body>
+
+</html>

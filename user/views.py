@@ -1,3 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse,redirect
+from django.contrib.auth.models import User
+from .models import Profile
 
 # Create your views here.
+def index(request):
+    return HttpResponse("Inside user")
+    
+def register(request):
+    if request.method=='POST':
+        fname=request.POST.get("fname")
+        username=request.POST.get("username")
+        dob=request.POST.get("dob")
+        rollno=request.POST.get("rollno")
+        email=request.POST.get("email")
+        password=request.POST.get("password")
+        cpassword=request.POST.get("cpassword")
+        dept=request.POST.get("dept")
+        yos=request.POST.get("yos")
+        male=request.POST.get("male","off")
+        female=request.POST.get("female","off")
+        pnts=request.POST.get("pnts","off")
+        gender=""
+        if male=="on":
+            gender="Male"
+        elif female=="on":
+            gender="Female"
+        else:
+            gender="Prefer Not to say"
+
+
+        new_user=User.objects.create_user(username,email,password)
+        new_user.save()
+
+        newprofile=Profile(user=new_user,Date_Of_Birth=dob,Roll_No=rollno,Department=dept,Year_Of_Study=yos,Gender=gender)
+        newprofile.save()
+        print("&**********&&&&&&&&&&&")
+        return render(request,'login.html')
+
+    return render(request,'registration.html')
