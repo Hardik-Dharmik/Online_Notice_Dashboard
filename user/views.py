@@ -44,5 +44,5 @@ def viewprofile(request):
     context={'user':user}
     return render(request,'personal_details(user).html',context)
 
-
-
+def dash(request):
+    return render(request,'dashboard(user).html')
