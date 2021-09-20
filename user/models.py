@@ -9,6 +9,7 @@ class Profile(models.Model):
     Department=models.CharField(max_length=100)
     Year_Of_Study=models.CharField(max_length=4)
     Gender=models.CharField(max_length=50)
+    Admin_Status=models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
