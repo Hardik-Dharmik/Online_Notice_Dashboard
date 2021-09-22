@@ -11,5 +11,5 @@ class addNotice(models.Model):
     date = models.DateTimeField(auto_now_add=True,blank=True)
 
     def __str__(self):
-        return 'Title is '+self.title
+        return 'Title is '+self.title_notice
     
