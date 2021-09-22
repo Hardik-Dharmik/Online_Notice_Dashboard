@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from user.models import Profile
+from .models import addNotice
 
 def viewprofile(request):
     user=Profile.objects.filter(user=request.user)[0]
@@ -7,12 +8,19 @@ def viewprofile(request):
     return render(request,'personal_details(admin).html',context)
 
 #For adding Notice
-def addNotice(request):
+def __addNotice__(request):
     if request.method=='POST':
         title = request.POST['title'] 
         dept = request.POST['dept'] 
         content = request.POST['content'] 
-        addNotice = AddNotice(title= title, dept = dept, content = content)
-        addNotice.save()
+        newNotice = addNotice(title= title, dept = dept, content = content)
+        newNotice.save()
         return render(request,'dashboard(admin).html')
-    return render(request,'add_notice.html')
+    content={'user':request.user}
+    return render(request,'add_notice.html',context)
+
+
+def viewnotice(request):
+    notices=addNotice.objects.all()
+    context={'notices':notices}
+    return render(request,'notice(admin).html',context)

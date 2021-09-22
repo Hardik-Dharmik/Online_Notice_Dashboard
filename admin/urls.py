@@ -6,4 +6,6 @@ from . import views
 
 urlpatterns = [
     path('viewprofile/',views.viewprofile,name="show profile"),
+    path('viewnotice/',views.viewnotice,name="show notice"),
+    path('addnotice/',views.__addNotice__,name="add notice"),
 ]
