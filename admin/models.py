@@ -5,7 +5,7 @@ from django.db import models
 
 class addNotice(models.Model):
     sno = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=255)
+    title_notice = models.CharField(max_length=255)
     dept = models.CharField(max_length=10)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True,blank=True)

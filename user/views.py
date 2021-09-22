@@ -34,7 +34,15 @@ def register(request):
 
         newprofile=Profile(user=new_user,Date_Of_Birth=dob,Roll_No=rollno,Department=dept,Year_Of_Study=yos,Gender=gender)
         newprofile.save()
-        print("&**********&&&&&&&&&&&")
         return render(request,'login.html')
 
     return render(request,'registration.html')
+
+def viewprofile(request):
+    user=Profile.objects.filter(user=request.user)[0]
+    print(user.Gender)
+    context={'user':user}
+    return render(request,'personal_details(user).html',context)
+
+def dash(request):
+    return render(request,'dashboard(user).html')

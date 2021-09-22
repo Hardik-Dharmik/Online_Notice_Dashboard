@@ -28,32 +28,21 @@
 
 
             <div class="list-group list-group-flush my-3">
-                <a class="list-group-item list-group-item-action  " href="notice(admin).html">
-                    <i class="fas fa-tachometer-alt me-2"></i>Noticeboard
-                </a>
-                <a class="list-group-item list-group-item-action " href="registration.htm">
-                    <i class="fas fa-project-diagram me-2"></i>Add Student(register)
-                </a>
-                <a class="list-group-item list-group-item-action " href="dashboard(admin).html">
-                    <i class="fas fa-chart-line me-2"></i>Progress
-                </a>
-                <a class="list-group-item list-group-item-action " href="student(admin).html">
-                    <i class="fas fa-paperclip me-2"></i>Student
-                </a>
-                <a class="list-group-item list-group-item-action " href="#">
-                    <i class="fas fa-shopping-cart me-2"></i>Progress
-                </a>
-                <a class="list-group-item list-group-item-action" href="#">
-                    <i class="fas fa-comment-dots me-2"></i>Progress
-                </a>
-                <a class="list-group-item list-group-item-action " href="#">
-                    <i class="fas fa-map-marker-alt me-2"></i>Progress
-                </a>
+                <a class="list-group-item list-group-item-action" href="/notice/">
+					<i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+				</a>
+				<a class="list-group-item list-group-item-action " href="/register/">
+					<i class="fas fa-project-diagram me-2"></i>Add Student(register)
+				</a>
+				<a class="list-group-item list-group-item-action " href="/dashadmin/">
+					<i class="fas fa-chart-line me-2"></i>Progress
+				</a>
+				<a class="list-group-item list-group-item-action " href="/student/">
+					<i class="fas fa-paperclip me-2"></i>Student
+				</a>
 
             </div>
         </div>
-
-
 
         <!-- Sidebar ends here -->
 
@@ -75,7 +64,7 @@
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="personal_details(admin).html">Profile</a>
-                        <a class="dropdown-item" href="login.htm">Log out</a>
+                        <a class="dropdown-item" href="/logout/">Log out</a>
                     </div>
                 </div>
 
@@ -91,10 +80,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for profile in Profile %}
                     <tr>
-
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <td>profile.user</td>
+                        <td>profile.Department</td>
                         <td>
                             <a href="personal_details.html">
                                 <i class="fas fa-user"></i>
@@ -103,152 +92,14 @@
                             <i class="fas fa-check-circle"></i>
                         </td>
                     </tr>
-                    <tr>
-
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>
-                            <a href="personal_details.html">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <i class="fas fa-times-circle"></i>
-                            <i class="fas fa-check-circle"></i>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
-
-
-
         </div>
         <!-- Navbar Ends Here -->
 
 
     </div>
-
-
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
