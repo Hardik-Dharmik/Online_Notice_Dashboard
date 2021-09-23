@@ -195,9 +195,15 @@ form .user-details .input-box{
             <span class="details">Confirm Password</span>
             <input type="text" placeholder="Confirm your password" name="cpassword" required>
           </div>
-          <div class="input-box">
-            <span class="details">Department</span>
-            <input type="text" placeholder="Enter Department" name="dept" required>
+          <div class="input-box" >
+            <label for="dept">Select Department</label>
+            <select name="dept" id="dept" class="form-control" required>
+              <option>none</option>
+              <option>IT</option>
+              <option>ECE</option>
+              <option>MECH</option>
+              <option>CSE</option>
+            </select>
           </div>
           <div class="input-box">
             <span class="details">Year of Study</span>

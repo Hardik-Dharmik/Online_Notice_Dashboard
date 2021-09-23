@@ -15,7 +15,8 @@
 
 <body>
 
-	<div class="d-flex" id="wrapper">
+	{% if user.is_authenticated %}
+		<div class="d-flex" id="wrapper">
 
 		<!-- Sidebar Starts here -->
 
@@ -23,38 +24,26 @@
 
 			<div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
 				<a class="navbar-brand" id="logo" href="index.html">
-					<img src="primathink.png" height="100" width="180">
+					<img src="../static/img/logo.png" height="100" width="180">
 				</a>
 			</div>
 
 
 			<div class="list-group list-group-flush my-3">
-				<a class="list-group-item list-group-item-action" href="/Admin/viewnotice/">
+				<a class="list-group-item list-group-item-action" href="/notice/">
 					<i class="fas fa-tachometer-alt me-2"></i>Noticeboard
 				</a>
 				<a class="list-group-item list-group-item-action " href="/register/">
 					<i class="fas fa-project-diagram me-2"></i>Add Student(register)
 				</a>
-				<a class="list-group-item list-group-item-action " href="dashboard(admin).html">
+				<a class="list-group-item list-group-item-action " href="/dashadmin/">
 					<i class="fas fa-chart-line me-2"></i>Progress
 				</a>
-				<a class="list-group-item list-group-item-action " href="student(admin).html">
+				<a class="list-group-item list-group-item-action " href="/student/">
 					<i class="fas fa-paperclip me-2"></i>Student
 				</a>
-				<a class="list-group-item list-group-item-action " href="#">
-					<i class="fas fa-shopping-cart me-2"></i>Progress
-				</a>
-				<a class="list-group-item list-group-item-action" href="#">
-					<i class="fas fa-comment-dots me-2"></i>Progress
-				</a>
-				<a class="list-group-item list-group-item-action " href="#">
-					<i class="fas fa-map-marker-alt me-2"></i>Progress
-				</a>
-
 			</div>
 		</div>
-
-
 
 		<!-- Sidebar ends here -->
 
@@ -180,6 +169,7 @@
 
 	</div>
 
+	{% endif %}
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

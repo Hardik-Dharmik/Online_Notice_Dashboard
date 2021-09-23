@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth import login,logout,authenticate
 from user.models import Profile
+from Admin.models import addNotice
 
 def index(request):
     return render(request, 'login.html')
@@ -51,3 +52,15 @@ def dash_user(request):
 
 def dash_admin(request):
     return render(request,'dashboard(admin).html',{'admin':request.user})
+    
+def notice(request):
+    notices=addNotice.objects.all()
+    print(notices)
+    context={'notices':notices,'admin':request.user}
+    return render(request,'notice(admin).html',context)
+
+def addnotice(request):
+    return render(request,'add_notice.html',{'admin':request.user})
+
+def student(request):
+    return render(request,'student(admin).html',{'admin':request.user})
