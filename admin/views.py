@@ -2,6 +2,7 @@ from django.shortcuts import render
 from user.models import Profile
 from Admin.models import addNotice
 
+#For Viewing Profile of Admin
 def viewprofile(request):
     user=Profile.objects.filter(user=request.user)[0]
     context={'user':user}
