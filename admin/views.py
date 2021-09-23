@@ -16,7 +16,7 @@ def __addNotice__(request):
         newNotice = addNotice(title= title, dept = dept, content = content)
         newNotice.save()
         return render(request,'dashboard(admin).html')
-    content={'user':request.user}
+    context={'user':request.user}
     return render(request,'add_notice.html',context)
 
 
