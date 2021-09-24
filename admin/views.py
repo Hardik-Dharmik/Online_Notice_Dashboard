@@ -10,9 +10,9 @@ def viewprofile(request):
 #For adding Notice
 def addNotice(request):
     if request.method=='POST':
-        title_notice = request.POST['title_notice'] 
-        dept = request.POST['dept'] 
-        content = request.POST['content'] 
+        title_notice = request.POST.get('title_notice') 
+        dept = request.POST.get('dept') 
+        content = request.POST.get('content') 
         AddNotice = addNotice(title_notice = title_notice, dept = dept, content = content)
         AddNotice.save()
         return render(request,'dashboard(admin).html')
