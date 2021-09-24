@@ -1,7 +1,8 @@
 from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth import login,logout,authenticate
-from user.models import Profile
+from user.models import Profile,Acknowledgment
 from Admin.models import addNotice
+
 
 def index(request):
     return render(request, 'login.html')
@@ -48,7 +49,22 @@ def __logout__(request):
     return render(request,'login.html')
 
 def dash_user(request):
-    return render(request,'dashboard(user).html',{'user':request.user})
+    profile=Profile.objects.filter(user=request.user)[0]
+    acks=Acknowledgment.objects.filter(profile=profile,is_acknowledged=False)
+    # print(profile.Department,profile.Year_Of_Study)
+    notices=[]
+    for i in acks:
+        print(i.notice)
+        notices.append(i.notice)
+    # notices=list_to_queryset(notices)
+    print(notices)
+    # if profile.Department=="ALL":
+    #     notices=addNotice.objects.all(year=profile.Year_Of_Study)
+    # else:
+    #     notices=addNotice.objects.filter(dept=profile.Department,year=profile.Year_Of_Study)
+    print("notices=",notices)
+    context={'user':request.user,'notices':notices,'acks':acks}
+    return render(request,'dashboard(user).html',context)
 
 def dash_admin(request):
     return render(request,'dashboard(admin).html',{'admin':request.user})

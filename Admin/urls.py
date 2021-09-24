@@ -8,4 +8,7 @@ urlpatterns = [
     path('viewprofile/',views.viewprofile,name="show profile"),
     path('viewnotice/',views.viewnotice,name="show notice"),
     path('addnotice/',views.__addNotice__,name="add notice"),
+    path('updatenotice/',views.updatenotice,name="update notice"),
+    path('updatenoticeindb/',views.updatenotice_in_db,name="actual update notice"),
+    path('deletenotice/',views.deletenotice,name="actual delete notice"),
 ]
