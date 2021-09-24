@@ -11,4 +11,5 @@ urlpatterns = [
     path('updatenotice/',views.updatenotice,name="update notice"),
     path('updatenoticeindb/',views.updatenotice_in_db,name="actual update notice"),
     path('deletenotice/',views.deletenotice,name="actual delete notice"),
+    path('student/',views.student,name="student"),
 ]
