@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('',views.viewprofile,name="show profile"),
     path('viewprofile/',views.viewprofile,name="show profile"),
-    path('addNotice/',views.addNotice,name="add notice"),
+    path('viewnotice/',views.viewnotice,name="show notice"),
+    path('addnotice/',views.__addNotice__,name="add notice"),
 ]

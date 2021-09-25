@@ -15,7 +15,8 @@
 
 <body>
 
-	<div class="d-flex" id="wrapper">
+	{% if user.is_authenticated %}
+		<div class="d-flex" id="wrapper">
 
 		<!-- Sidebar Starts here -->
 
@@ -43,7 +44,7 @@
 				</a>
 			</div>
 		</div>
-		
+
 		<!-- Sidebar ends here -->
 
 
@@ -168,6 +169,7 @@
 
 	</div>
 
+	{% endif %}
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
