@@ -9,6 +9,7 @@ def index(request):
     
 def register(request):
     if request.method=='POST':
+        photo=request.POST.get("fileupload")
         fname=request.POST.get("fname")
         username=request.POST.get("username")
         dob=request.POST.get("dob")
@@ -33,7 +34,7 @@ def register(request):
         new_user=User.objects.create_user(username,email,password)
         new_user.save()
 
-        newprofile=Profile(user=new_user,Date_Of_Birth=dob,Roll_No=rollno,Department=dept,Year_Of_Study=yos,Gender=gender)
+        newprofile=Profile(photo=photo,user=new_user,Date_Of_Birth=dob,Roll_No=rollno,Department=dept,Year_Of_Study=yos,Gender=gender)
         newprofile.save()
         return render(request,'login.html')
 
