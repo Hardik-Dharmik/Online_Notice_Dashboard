@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/css/style_admin.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar Starts here -->
+
+    <div class="bg-white" id="sidebar-wrapper">
+      <div class="
+            sidebar-heading
+            text-center
+            py-4
+            primary-text
+            fs-4
+            fw-bold
+            text-uppercase
+            border-bottom
+          ">
+        <a class="navbar-brand" id="logo" href="index.html">
+          <img src="../static/img/logo.png" height="100" width="180" />
+        </a>
+      </div>
+
+      <div class="list-group list-group-flush my-3">
+        <a class="list-group-item list-group-item-action" href="/notice/">
+          <i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+        </a>
+        <a class="list-group-item list-group-item-action" href="/register/">
+          <i class="fas fa-project-diagram me-2"></i>Add Student(register)
+        </a>
+        <a class="list-group-item list-group-item-action" href="/dashadmin/">
+          <i class="fas fa-chart-line me-2"></i>Progress
+        </a>
+        <a class="list-group-item list-group-item-action" href="/Admin/student/">
+          <i class="fas fa-paperclip me-2"></i>Student
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar ends here -->
+
+    <!--Navbar Starts Here  -->
+    <div class="page-content-wrapper container">
+      <nav class="navbar navbar-expand-xl bg-transparent d-flex">
+        <div class="d-flex" id="navelements" style="flex-grow: 1">
+          <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+          <h2 class="fs-2 m-0 navbar-brand">Dashboard</h2>
+        </div>
+        <div class="dropdown show">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Hii {{user.username}}
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/Admin/viewprofile/">Profile</a>
+            <a class="dropdown-item" href="/logout/">Log out</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid px-4 d-flex flex-row justify-content-start" style="flex-wrap: wrap">
+        <div style="flex-basis: 100%">
+          <h1 class="h1 mb-0 text-gray-700"><b>&nbsp;Notice Board</b></h1>
+        </div>
+
+        <div class="container d-flex justify-content-center" style="padding-right: 0px">
+          <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3" style="
+                max-width: 750px;
+                background: #b9e4e1;
+                max-height: 420px;
+                border-radius: 5px;
+              ">
+            <div>
+              <h3 style="text-align: center"><b>Notices</b></h3>
+              <a href="/addnotice/" type="button" class="btn btn-primary mx-3">ADD NOTICE</a>
+            </div>
+            <div class="card" style="width: 720px">
+              {% for notice in notices %}
+              <div class="card-body">
+                <h5 class="card-title" id="noticetitle{{notice.sno}}">
+                  {{notice.title_notice}}
+                </h5>
+                <h6>Department:{{notice.dept}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Subject</h6>
+                <p class="card-text">{{notice.content}}</p>
+
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-success mx-4">
+                    View Students
+                  </button>
+
+                  <form action="/Admin/updatenotice/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="noticeid" value="{{notice.sno}}" />
+                    <button class="btn btn-info mx-3" type="submit">
+                      Update Notice
+                    </button>
+                  </form>
+
+                  <button type="button" class="btn btn-danger mx-4" data-toggle="modal" data-target="#exampleModal"
+                    id="del{{notice.sno}}" onclick="deletenotice('{{notice.sno}}')">
+                    DELETE NOTICE
+                  </button>
+                </div>
+              </div>
+              <hr />
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modaltitle{{notice.sno}}">
+                        Are you sure you want to delete this notice?
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-footer">
+                      <form action="/Admin/deletenotice/" method="post">{% csrf_token %}
+                        <input type="hidden" name="noticeid" id="modid">
+                        <button  class="btn btn-danger" type="submit">
+                          Yes
+                        </button>
+                      </form>
+                      <button type="button" class="btn btn-success" data-dismiss="modal">
+                        No
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var sidebar = document.getElementById("wrapper");
+    var toggle = document.getElementById("menu-toggle");
+
+    toggle.onclick = function () {
+      sidebar.classList.toggle("toggled");
+    };
+
+    function deletenotice(id) {
+      document.getElementById("modid").value = id;
+    }
+  </script>
+</body>
+
+</html>

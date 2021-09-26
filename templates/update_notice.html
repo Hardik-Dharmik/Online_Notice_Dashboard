@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style_admin.css' %}">
+    <title>Add Notice</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* padding: 10px; */
+            background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: #DEF2F1;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        .content form .user-details {
+            background: #DEF2F1;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #9b59b6;
+        }
+
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-image: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        form .button input:hover {
+            background-image: linear-gradient(109.6deg, rgba(255, 161, 59, 1) 11.2%, rgba(255, 255, 255, 1) 100.2%);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar Starts here -->
+
+        <div class="bg-white" id="sidebar-wrapper">
+
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <a class="navbar-brand" id="logo" href="index.html">
+                    <img src="../static/img/logo.png" height="100" width="180">
+                </a>
+            </div>
+
+
+            <div class="list-group list-group-flush my-3">
+                <a class="list-group-item list-group-item-action" href="/notice/">
+					<i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+				</a>
+				<a class="list-group-item list-group-item-action " href="/register/">
+					<i class="fas fa-project-diagram me-2"></i>Add Student(register)
+				</a>
+				<a class="list-group-item list-group-item-action " href="/dashadmin/">
+					<i class="fas fa-chart-line me-2"></i>Progress
+				</a>
+				<a class="list-group-item list-group-item-action " href="/student/">
+					<i class="fas fa-paperclip me-2"></i>Student
+				</a>
+
+            </div>
+        </div>
+
+
+
+        <!-- Sidebar ends here -->
+
+
+
+
+        <!--Navbar Starts Here  -->
+        <div class="page-content-wrapper container">
+			<nav class="navbar navbar-expand-xl bg-transparent d-flex">
+				<div class="d-flex " id="navelements" style="flex-grow:1;">
+					<i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+					<h2 class="fs-2 m-0 navbar-brand ">Dashboard</h2>
+				</div>
+				<div class="dropdown show">
+					<a class=" btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						Hii {{user.username}}
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href="/Admin/viewprofile/">Profile</a>
+						<a class="dropdown-item" href="/logout/">Log out</a>
+					</div>
+				</div>
+
+			</nav>
+                    <!-- Navbar Ends Here -->
+
+            <div class="container"><br>
+                <div class="title">Add Notice</div>
+                <div class="content">
+                    <form action="/Admin/updatenoticeindb/" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="noticeid" value="{{notice.sno}}">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <label for="title_notice">Title</label>
+                                <input type="text" class ="form-control" name="title_notice" id="title_notice" placeholder="Enter Title" value="{{notice.title_notice}}" required>
+                            </div>
+                            
+							<div class="form-group" style="padding-top: 5px">
+							    <label for="dept">Select Department</label>
+							    <select name="dept" id="dept" class="form-control">
+							      <option>ALL</option>
+							      <option>IT</option>
+							      <option>ECE</option>
+							      <option>MECH</option>
+							      <option>CSE</option>
+							    </select>
+							  </div>
+
+                           <div class="form-group" style="padding-top: 10px">
+    							<label for="content">Notice content</label>
+							    <textarea class="form-control" name="content" id="content" rows="10">{{notice.content}}</textarea>
+							</div>
+                            
+                        </div>
+                        
+                        <div class="button">
+                            <input type="submit" value="Update Notice">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var sidebar = document.getElementById("wrapper")
+        var toggle = document.getElementById("menu-toggle")
+
+        toggle.onclick = function () {
+            sidebar.classList.toggle("toggled")
+        }
+    </script>
+</body>
+
+</html>

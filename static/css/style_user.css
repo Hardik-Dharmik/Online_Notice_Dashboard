@@ -1,0 +1,34 @@
+.bg-custom-2 {
+background-image: linear-gradient(90deg, #3aa5a9 91%, #3aa5a9 9%);
+}
+#ad{
+    position: absolute;
+    right: 10px;
+}
+
+#logo{
+   padding-left: 10px;
+}
+
+.card {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    font-family: arial;
+    margin-top: 30px;
+}
+  
+.title {
+    color: grey;
+    font-size: 18px;
+  }
+
+table {
+    font-family: sans-serif;
+    background-color: rgb(254,216,177) ;
+}
+#div_1{
+    background-color: rgb(255,69,0);
+    color: black;
+    font-stretch: expanded;
+}
