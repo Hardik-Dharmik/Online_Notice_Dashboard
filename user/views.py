@@ -30,7 +30,7 @@ def register(request):
         else:
             gender="Prefer Not to say"
 
-
+        
         new_user=User.objects.create_user(username,email,password)
         new_user.save()
 

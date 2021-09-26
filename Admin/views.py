@@ -70,4 +70,4 @@ def deletenotice(request):
     return HttpResponse("Bad Gateway")
 
 def student(request):
-    return render(request,'viewstudent(admin).html')
+    return render(request,'student(admin).html')
