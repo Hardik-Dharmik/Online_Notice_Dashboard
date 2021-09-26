@@ -70,84 +70,30 @@
 			<div>
 				<h3 style="text-align: center"><b>Notices</b></h3>
 			</div>
+			{% for ack in acks %}
 			<div class="card" style="width: 650px">
 				<div class="card-body">
-					<h5 class="card-title">Notice 1</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 1. Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice </p>
-				</div>
-			</div>
+					<h5 class="card-title">{{ack.notice.title_notice}}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Department:{{ack.notice.dept}}</h6>
+					<h6 class="card-subtitle mb-2 text-muted">Date: {{ack.notice.date}}</h6>
+					<p class="card-text">{{ack.notice.content}}</p>
 
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 2</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 2.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
+					{% if ack.is_acknowleged %}
+					
+					{% else %}
+						<form action="/user/acknow/" method="post">
+						{% csrf_token %}
+							<div class="d-flex justify-content-end">
+								<input type="hidden" name="ackid" value={{ack.ack_id}}>
+								<button class="btn btn-info" type="submit">Acknowledge</button>
+							</div>
+						</form>
+					{% endif %}
+					
+				</div> 
 			</div>
-
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 3</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 3.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
-			</div>
-
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 4 </h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 4.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
-			</div>
-			<div class="card" style="width: 650px">
-				<div class="card-body">
-					<h5 class="card-title">Notice 5</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 5. Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice </p>
-				</div>
-			</div>
-
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 6</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 6.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
-			</div>
-
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 7</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 7.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
-			</div>
-
-			<div class="card" style="width: 650px;">
-				<div class="card-body">
-					<h5 class="card-title">Notice 8 </h5>
-					<h6 class="card-subtitle mb-2 text-muted">Subject</h6>
-					<p class="card-text">Notice 8.Notice is the legal concept describing a requirement that a party be
-						aware of legal process affecting their rights, obligations or duties. There are several types of
-						notice: public notice, actual notice, constructive notice, and implied notice</p>
-				</div>
-			</div>
+			{% endfor %}
+			
 
 
 		</div>

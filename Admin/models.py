@@ -9,6 +9,7 @@ class addNotice(models.Model):
     dept = models.CharField(max_length=10)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True,blank=True)
+    year=models.CharField(max_length=4,default='ALL')
 
     def __str__(self):
         return 'Title is '+self.title_notice

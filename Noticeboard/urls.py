@@ -17,6 +17,7 @@ urlpatterns = [
     path('dashadmin/',views.dash_admin,name="dash_admin"),
     path('notice/',views.notice,name="notice"),
     path('addnotice/',views.addnotice,name="addnotice"),
-    path('student/',views.student,name="student"),
+    
+    # path('logout/',views.__logout__,name="logout"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

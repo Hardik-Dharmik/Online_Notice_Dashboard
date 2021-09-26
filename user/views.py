@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile,Acknowledgment
+from Admin.models import addNotice
 
 # Create your views here.
 def index(request):
@@ -22,7 +23,7 @@ def register(request):
         female=request.POST.get("female","off")
         pnts=request.POST.get("pnts","off")
         gender=""
-        if male=="on":
+        if male=="on": 
             gender="Male"
         elif female=="on":
             gender="Female"
@@ -46,4 +47,19 @@ def viewprofile(request):
     return render(request,'personal_details(user).html',context)
 
 def dash(request):
+    profile=Profile.objects.filter(user=request.user)[0]
+    notices=addNotice.objects.filter(dept=profile.Department,year=profile.Year_Of_Study)
+    print(notices)
     return render(request,'dashboard(user).html')
+
+def acknow(request):
+    if request.method=='POST':
+        id=request.POST.get('ackid')
+        obj=Acknowledgment.objects.filter(ack_id=id).first()
+        obj.is_acknowledged=True
+        obj.save()
+        return redirect("dash_user")
+
+    else:
+        return HttpResponse("Bad Gateway")
+
