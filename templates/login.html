@@ -164,10 +164,19 @@
     <meta charset="utf-8" />
     <title>Welcome to PrimaThink</title>
   </head>
+  
   <body style="font-family: 'Source Sans Pro', sans-serif; color: black">
+    <div>
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show bg-danger " role="alert" style="z-index: 2;color: white;">
+          <strong>Message: </strong> {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
     <div class="split left">
       <div class="centered">
-        <img src="../static/img/logo.png" /><br /><br /><br /><br />
+      
+        <img src="../static/img/logo.png" height="100" width="180"><br /><br /><br /><br />
         <font face="sans" size="4" color="black">We are Full-Stack Digital Transformation Company. As a Digital
           Marketing Company we are offering Digital Marketing, Web Development &
           Digital Transformation Consulting.</font>
@@ -208,10 +217,12 @@
         </form>
       </div>
     </div>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    </div>
   </body>
 </html>

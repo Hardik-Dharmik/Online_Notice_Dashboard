@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import mimetypes
+from django.contrib.messages import constants as messages
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #'admin.apps.AdminConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,10 +129,23 @@ USE_TZ = True
 # )
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static/'),)
+# STATIC_URL = '/static/'
+# SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+# STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static/'),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+STATIC_URL = '/static/'
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+# STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static/'),)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}

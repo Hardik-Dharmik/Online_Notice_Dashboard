@@ -2,6 +2,7 @@ from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth import login,logout,authenticate
 from user.models import Profile
 from Admin.models import addNotice
+from django.contrib import messages
 
 def index(request):
     return render(request, 'login.html')
@@ -36,10 +37,8 @@ def __login__(request):
                 login(request,user)
                 # return render(request,'dashboard(user).html',{'user':user}).
                 return redirect('dash_user')
-
-
         else:
-            return HttpResponse("Wrong.")
+            messages.error(request,'User with these details not found')    
     return render(request,'login.html')
 
 
@@ -48,9 +47,15 @@ def __logout__(request):
     return render(request,'login.html')
 
 def dash_user(request):
+    user=request.user
+    print(user)
+    messages.success(request, f"Welcome {user}")
     return render(request,'dashboard(user).html',{'user':request.user})
 
 def dash_admin(request):
+    user=request.user
+    print(user)
+    messages.success(request, f"Welcome {user}")
     return render(request,'dashboard(admin).html',{'admin':request.user})
     
 def notice(request):
