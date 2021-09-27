@@ -70,4 +70,7 @@ def deletenotice(request):
     return HttpResponse("Bad Gateway")
 
 def student(request):
-    return render(request,'viewstudent(admin).html')
+    students=Profile.objects.filter(Admin_Status=False)
+    print(students)
+    context={'students':students,'admin':request.user}
+    return render(request,'student(admin).html',context)

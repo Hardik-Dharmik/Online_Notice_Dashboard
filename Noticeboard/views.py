@@ -19,7 +19,6 @@ def viewprofile(request):
 
 def __login__(request):
     if request.method == 'POST':
-        choice=request.POST.get('flexRadioDefault','')
         loginusername=request.POST.get('username')
         loginpassword=request.POST.get('password')
         user=authenticate(username=loginusername,password=loginpassword)
@@ -39,7 +38,7 @@ def __login__(request):
                 # return render(request,'dashboard(user).html',{'user':user}).
                 return redirect('dash_user')
         else:
-            messages.error(request,'User with these details not found')    
+            messages.error(request,'User with these details not found, kindly retry')    
     return render(request,'login.html')
 
 
@@ -73,7 +72,6 @@ def dash_admin(request):
     
 def notice(request):
     notices=addNotice.objects.all()
-    print(notices)
     context={'notices':notices,'admin':request.user}
     return render(request,'notice(admin).html',context)
 
@@ -81,4 +79,8 @@ def addnotice(request):
     return render(request,'add_notice.html',{'admin':request.user})
 
 def student(request):
-    return render(request,'student(admin).html',{'admin':request.user})
+    students=Profile.objects.all()
+    print(students)
+    context={'students':students,'admin':request.user}
+    return render(request,'student(admin).html',context)
+
