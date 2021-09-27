@@ -79,7 +79,7 @@ def addnotice(request):
     return render(request,'add_notice.html',{'admin':request.user})
 
 def student(request):
-    students=Profile.objects.all()
+    students=Profile.objects.filter(Admin_Status=False)
     print(students)
     context={'students':students,'admin':request.user}
     return render(request,'student(admin).html',context)

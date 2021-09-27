@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from user.models import Profile,Acknowledgment
 from .models import addNotice
+from django.contrib.auth.models import User
 
 def viewprofile(request):
     user=Profile.objects.filter(user=request.user)[0]
@@ -74,3 +75,26 @@ def student(request):
     print(students)
     context={'students':students,'admin':request.user}
     return render(request,'student(admin).html',context)
+
+def viewinfo(request,sno):
+    notice=addNotice.objects.filter(sno=sno).first()
+    print(notice)
+    acks=Acknowledgment.objects.filter(notice=notice)
+    print(acks)
+    viewed=[]
+    notviewed=[]
+    for i in acks:
+        if i.is_acknowledged==True:
+            viewed.append(i)
+        else:
+            notviewed.append(i)
+
+    context={'viewed':viewed,'notviewed':notviewed,'notice':notice}
+    return render(request,'notice_info.html',context)
+
+def viewstudent(request,username):
+    user=User.objects.filter(username=username).first()
+    print(user)
+    profile=Profile.objects.filter(user=user).first()
+    context={'profile':profile}
+    return render(request,"personal_details(user).html",context)

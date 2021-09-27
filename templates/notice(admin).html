@@ -99,9 +99,7 @@
                 <p class="card-text">{{notice.content}}</p>
 
                 <div class="d-flex justify-content-end">
-                  <button type="button" class="btn btn-success mx-4">
-                    View Students
-                  </button>
+                  <a href="/Admin/{{notice.sno}}" class="btn btn-success mx-2">View Info</a>
 
                   <form action="/Admin/updatenotice/" method="post">
                     {% csrf_token %}
@@ -113,7 +111,7 @@
 
                   <button type="button" class="btn btn-danger mx-4" data-toggle="modal" data-target="#exampleModal"
                     id="del{{notice.sno}}" onclick="deletenotice('{{notice.sno}}')">
-                    DELETE NOTICE
+                    Delete Notice
                   </button>
                 </div>
               </div>

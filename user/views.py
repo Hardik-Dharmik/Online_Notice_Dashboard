@@ -42,7 +42,7 @@ def register(request):
 def viewprofile(request):
     user=Profile.objects.filter(user=request.user)[0]
     print(user.Gender)
-    context={'user':user}
+    context={'profile':user}
     return render(request,'personal_details(user).html',context)
 
 def dash(request):

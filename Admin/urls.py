@@ -12,4 +12,6 @@ urlpatterns = [
     path('updatenoticeindb/',views.updatenotice_in_db,name="actual update notice"),
     path('deletenotice/',views.deletenotice,name="actual delete notice"),
     path('student/',views.student,name="student"),
+    path('<int:sno>',views.viewinfo,name="view info"),
+    path('<str:username>',views.viewstudent,name="view student"),
 ]

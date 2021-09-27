@@ -73,6 +73,7 @@
             </nav>
 
 
+            <h3>Student who viewed Notice: {{notice}}</h3>
             <div class="container">
                 <table class="table table-striped table-dark" id="maintable">
                     <thead>
@@ -83,12 +84,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for student in students %}
+                        {% for i in viewed %}
                         <tr>
-                            <td>{{student.user}}</td>
-                            <td>{{student.Department}}</td>
+                            <td>{{i.profile.user}}</td>
+                            <td>{{i.profile.Department}}</td>
                             <td>
-                                <a href="/Admin/{{student.user.username}}" class="link-warning">
+                                <a href="/Admin/{{i.profile.user.username}}" class="link-warning">
+                                    <!-- <i class="fas fa-user"></i> -->
+                                    View
+                                </a>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-check-circle"></i>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Student who didn't viewed Notice: {{notice}}</h3>
+            <div class="container">
+                <table class="table table-striped table-dark" id="maintable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">View/Grant/Revoke</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in notviewed %}
+                        <tr>
+                            <td>{{i.profile.user}}</td>
+                            <td>{{i.profile.Department}}</td>
+                            <td>
+                                <a href="/Admin/{{i.profile.user.username}}" class="link-warning">
                                     <!-- <i class="fas fa-user"></i> -->
                                     View
                                 </a>
