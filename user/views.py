@@ -31,8 +31,9 @@ def register(request):
             gender="Prefer Not to say"
 
         new_user=User.objects.create_user(username,email,password)
+        new_user.first_name=fname
         new_user.save()
-
+        
         newprofile=Profile(photo=photo,user=new_user,Date_Of_Birth=dob,Roll_No=rollno,Department=dept,Year_Of_Study=yos,Gender=gender)
         newprofile.save()
         return render(request,'login.html')

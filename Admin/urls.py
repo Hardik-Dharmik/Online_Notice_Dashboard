@@ -14,4 +14,7 @@ urlpatterns = [
     path('student/',views.student,name="student"),
     path('<int:sno>',views.viewinfo,name="view info"),
     path('<str:username>',views.viewstudent,name="view student"),
+    path('delete_student/<str:username>',views.deletestudent,name="delete student"),
+    path('update_student/<str:username>',views.updatestudent,name="update student"),
+    path('update_student_indb/',views.updatestudent_indb,name="actual update student"),
 ]
