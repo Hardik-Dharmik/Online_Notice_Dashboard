@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from user.models import Profile,Acknowledgment
 from .models import addNotice
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 def viewprofile(request):
     user=Profile.objects.filter(user=request.user)[0]
@@ -16,23 +17,19 @@ def __addNotice__(request):
         content = request.POST['content'] 
         newNotice = addNotice(title_notice= title_notice, dept = dept, content = content)
         newNotice.save()
-        # profiles=Profile.objects.filter(Department=dept)
-        # for i in profiles:
-        #     i.Notice=newNotice
-        #     i.save()
 
         profiles=Profile.objects.filter(Department=dept)
         for profile in profiles:
             ack=Acknowledgment(profile=profile,notice=newNotice)
             ack.save()
-        return render(request,'dashboard(admin).html')
+        messages.success(request,'Notice added!')
+        return redirect('show notice')
     context={'user':request.user}
     return render(request,'add_notice.html',context)
 
 
 def viewnotice(request):
     notices=addNotice.objects.all()
-    print(notices)
     context={'notices':notices}
     return render(request,'notice(admin).html',context)
 
@@ -67,6 +64,7 @@ def deletenotice(request):
         noticeid=request.POST.get('noticeid')
         notice=addNotice.objects.filter(sno=noticeid).first()
         notice.delete()
+        messages.error(request,'Notice deleted Sucessfully!')
         return redirect("notice")
     return HttpResponse("Bad Gateway")
 

@@ -30,12 +30,14 @@ def __login__(request):
                 print("admin")
                 login(request,user)
                 # return render(request,'dashboard(admin).html',{'user':user})
+                messages.success(request, f"Welcome {user}")
                 return redirect('dash_admin')
 
             else:
                 print("user")
                 login(request,user)
                 # return render(request,'dashboard(user).html',{'user':user}).
+                messages.success(request, f"Welcome {user}")
                 return redirect('dash_user')
         else:
             messages.error(request,'User with these details not found, kindly retry')    
@@ -66,8 +68,7 @@ def dash_user(request):
 
 def dash_admin(request):
     user=request.user
-    print(user)
-    messages.success(request, f"Welcome {user}")
+    #print(user)
     return render(request,'dashboard(admin).html',{'admin':request.user})
     
 def notice(request):
