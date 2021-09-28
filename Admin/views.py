@@ -20,7 +20,7 @@ def __addNotice__(request):
 
         profile=None
         if dept=="ALL":
-            profiles=Profile.objects.all(Admin_Status=False)
+            profiles=Profile.objects.filter(Admin_Status=False)
         else:
             profiles=Profile.objects.filter(Department=dept)
 
@@ -82,6 +82,8 @@ def student(request):
 def viewinfo(request,sno):
     notice=addNotice.objects.filter(sno=sno).first()
     print(notice)
+    acks=None
+
     acks=Acknowledgment.objects.filter(notice=notice)
     print(acks)
     viewed=[]
