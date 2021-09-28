@@ -6,8 +6,7 @@ from Admin.models import addNotice
 
 
 class Profile(models.Model):
-    photo = models.FileField(storage=FileSystemStorage(
-    location=settings.MEDIA_ROOT), upload_to='photo', default='settings.MEDIA_ROOT/photo/anonymous.jpg')
+    image = models.ImageField(upload_to="user/img",default="")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     Date_Of_Birth = models.DateField(auto_now=False)
     Roll_No = models.IntegerField(primary_key=False, null=False, unique=True)
