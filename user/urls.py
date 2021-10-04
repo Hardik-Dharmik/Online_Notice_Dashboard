@@ -8,4 +8,5 @@ urlpatterns = [
     path('viewprofile/',views.viewprofile,name="show profile"),
     path('dashboard/',views.dash,name="dashboard"),
     path('acknow/',views.acknow,name="acknow"),
+    path('viewreg/',views.viewreg,name="view register"),
 ]
