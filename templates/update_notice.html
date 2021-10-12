@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style_admin.css' %}">
+    <link rel="stylesheet" href={% static 'css/style_admin.css' %}>
     <link rel="icon" href={% static 'img/io.png' %} sizes="16x16" type="image/png">
     <title>Add Notice</title>
     <style>
@@ -117,11 +117,11 @@
 
         <!-- Sidebar Starts here -->
 
-        <div class="bg-white" id="sidebar-wrapper">
+        <div class="bg-white" id="sidebar-wrapper" style="transition: 0.5s;">
 
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
                 <a class="navbar-brand" id="logo" href="index.html">
-                    <img src="../static/img/dnbs.png" height="100" width="180">
+                    <img src={% static 'img/dnbs.png' %} height="100" width="180">
                 </a>
             </div>
 
@@ -136,7 +136,7 @@
 				<a class="list-group-item list-group-item-action " href="/dashadmin/">
 					<i class="fas fa-chart-line me-2"></i>Progress
 				</a>
-				<a class="list-group-item list-group-item-action " href="/student/">
+				<a class="list-group-item list-group-item-action " href="/Admin/student/">
 					<i class="fas fa-paperclip me-2"></i>Student
 				</a>
 
@@ -151,7 +151,7 @@
 
 
         <!--Navbar Starts Here  -->
-        <div class="page-content-wrapper container">
+        <div class="page-content-wrapper " style="width:100vw;  background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%); ">
 			<nav class="navbar navbar-expand-xl bg-transparent d-flex">
 				<div class="d-flex " id="navelements" style="flex-grow:1;">
 					<i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -173,7 +173,7 @@
                     <!-- Navbar Ends Here -->
 
             <div class="container"><br>
-                <div class="title">Add Notice</div>
+                <div class="title">Update Notice</div>
                 <div class="content">
                     <form action="/Admin/updatenoticeindb/" method="POST">
                         {% csrf_token %}
@@ -195,6 +195,16 @@
 							    </select>
 							  </div>
 
+                            <div class="form-group" style="padding-top: 5px">
+							    <label for="yos">Year of Study</label>
+							    <select name="yos" id="yos" class="form-control">
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							      <option>4</option>
+							    </select>
+							  </div>  
+                              
                            <div class="form-group" style="padding-top: 10px">
     							<label for="content">Notice content</label>
 							    <textarea class="form-control" name="content" id="content" rows="10">{{notice.content}}</textarea>
@@ -203,19 +213,13 @@
                         </div>
                         
                         <div class="button">
-                            <input type="submit" value="Update Notice">
+                            <input type="submit" value="Update notice">
                         </div>
                     </form>
                 </div>
             </div>
-
-
-
         </div>
 
-
-
-    </div>
 
 
 
@@ -228,8 +232,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
     <script>
         var sidebar = document.getElementById("wrapper")
         var toggle = document.getElementById("menu-toggle")
